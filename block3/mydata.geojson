@@ -1,0 +1,44 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Romana Stollnberger"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3916015625,
+          48.21735290928554
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Johannes Floh"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.31143569946289,
+          48.180509585001744
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Martina Wastl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.402759552001953,
+          48.16299399839806
+        ]
+      }
+    }
+  ]
+}
