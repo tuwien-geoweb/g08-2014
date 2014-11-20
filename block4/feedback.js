@@ -32,8 +32,8 @@ function submitForm() {
       date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate());
   
   var transaction = new ol.format.WFS().writeTransaction([feature], null, null, {
-    featureType: 'feedback_an_g08',
-    featureNS: 'http://geoweb/2014/g08',
+    featureType: featureType,
+    featureNS: featureNS,
     gmlOptions: {srsName: 'EPSG:4326'}
   });
   var request = new XMLHttpRequest();
