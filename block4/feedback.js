@@ -36,6 +36,7 @@ function submitForm() {
     featureNS: featureNS,
     gmlOptions: {srsName: 'EPSG:4326'}
   });
+  alert(transaction);
   var request = new XMLHttpRequest();
   request.open('POST', 'http://student.ifip.tuwien.ac.at/geoserver/wfs', true);
   request.onload = function() {
