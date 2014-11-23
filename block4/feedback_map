@@ -46,6 +46,7 @@ zoom: 11
 </div>
 <div class="col-md-4">
 <h2>Karte der Gruppe 8</h2>
+<?php include feedback.php ?>
 </div>
 </div>
 </body>
