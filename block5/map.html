@@ -1,27 +1,30 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- Bootstrap resources -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="http://openlayers.org/en/v3.0.0/css/ol.css" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<style type="text/css">
-html, body {
+<style>
+html, body, #map, .row.full, .full .col-md-8 {
 margin: 0;
-width: 100%;
 height: 100%;
-}
-.map {
-height: 100%;
-width: 100%;
 }
 </style>
 <script src="http://openlayers.org/en/v3.0.0/build/ol.js" type="text/javascript"></script>
 <title>OpenLayers 3 example</title>
 </head>
 <body>
-<div class="row">
-<div class="col-md-8" style=";">
-<div id="map" class="map">
+<div class="row full">
+<div class="col-md-8">
+<div id="map"></div>
+</div>
+<div class="col-md-4">
+<form id="search">
+Search: <input name="query" type="text" size="40">
+</form>
+</div>
+</div>
 <script type="text/javascript">
 var marker = new ol.Feature();
 var map = new ol.Map({
@@ -31,64 +34,43 @@ new ol.layer.Tile({
 source: new ol.source.MapQuest({layer: 'osm'})
 }),
 new ol.layer.Vector({
-  source: new ol.source.Vector({
-    features: [marker]
-  })
-})
-new ol.layer.Vector({
-source: new ol.source.GeoJSON({
-projection: 'EPSG:3857',
-url: 'http://student.ifip.tuwien.ac.at/geoserver/g08_2014/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=g08_2014:feedback_an_g08&maxFeatures=50&outputFormat=json'
+source: new ol.source.Vector({
+features: [marker]
 })
 })
 ],
 view: new ol.View({
-center: ol.proj.transform([16.319, 48.166], 'EPSG:4326', 'EPSG:3857'),
+center: ol.proj.transform([16.3, 48.2], 'EPSG:4326', 'EPSG:3857'),
 zoom: 11,
 maxZoom: 19
 })
 });
 var geolocation = new ol.Geolocation({
-  projection: 'EPSG:3857'
-  });
+projection: 'EPSG:3857'
+});
 geolocation.setTracking(true); // here the browser may ask for confirmation
 geolocation.on('change:position', function() {
-  geolocation.setTracking(false);
-  map.getView().setCenter(geolocation.getPosition());
-  marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));  // nur einmal position geben, sobald ich sie hab, wieder ausschalten
+geolocation.setTracking(false);
+map.getView().setCenter(geolocation.getPosition());
+marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
 });
-</script>
-</div>
-</div>
-<div class="col-md-4">
-<form id="search">
-  Search: <input name="query" type="text" size="40">
-</form>
-<script src="http://openlayers.org/en/v3.0.0/build/ol.js"></script>
-<script>
 var form = document.getElementById("search");
-
-
-form.onsubmit = function (evt) {
-  evt.preventDefault(); //wenn das nicht drinsteht, wird seite neu geladen
-  var url = 'http://nominatim.openstreetmap.org/search?&format=json&q=' + form.query.value;
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
-
-  xhr.onload = function() {
-      var result = JSON.parse(xhr.responseText);
-      var bbox = result[0].boundingbox;
-      var extent = /** @type {ol.Extent}
-      var position = /** @type {ol.Coordinate} */ [
-        parseFloat(bbox[2]), parseFloat(bbox[0]), 
-        parseFloat(bbox[3]), parseFloat(bbox[1])
-        ]; //text in zahlen umwandeln
-      map.getView().fitExtent(ol.proj.transformExtent(extent, 'EPSG:4326', 'EPSG:3857'), map.getSize()); //zuerst koord.system in dems grad is, dann die wir haben wollen
-   };
-  xhr.send();
+form.onsubmit = function(evt) {
+evt.preventDefault();
+var url = 'http://nominatim.openstreetmap.org/search?format=json&q=' + form.query.value;
+var xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.onload = function() {
+var result = JSON.parse(xhr.responseText);
+var bbox = result[0].boundingbox;
+var extent = /** @type {ol.Extent} */ [
+parseFloat(bbox[2]), parseFloat(bbox[0]),
+parseFloat(bbox[3]), parseFloat(bbox[1])
+];
+map.getView().fitExtent(ol.proj.transformExtent(extent, 'EPSG:4326', 'EPSG:3857'), map.getSize());
+};
+xhr.send();
 }
 </script>
-</div>
-</div>
 </body>
 </html>
