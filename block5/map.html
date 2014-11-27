@@ -61,7 +61,7 @@ geolocation.on('change:position', function() {
 var form = document.getElementById("search");
 
 
-form.onsubmit = function () {
+form.onsubmit = function (evt) {
   evt.preventDefault(); //wenn das nicht drinsteht, wird seite neu geladen
   var url = 'http://nominatim.openstreetmap.org/search?&format=json&q=' + form.query.value;
   var xhr = new XMLHttpRequest();
