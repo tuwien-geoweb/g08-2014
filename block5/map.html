@@ -76,7 +76,7 @@ form.onsubmit = function (evt) {
         parseFloat(bbox[2]), parseFloat(bbox[0]), 
         parseFloat(bbox[3]), parseFloat(bbox[1])
         ]; //text in zahlen umwandeln
-      map.getView().fitExtent(ol.proj.transformExtent(extent, 'EPSG:4326', 'EPSG:3857')map.getSize()); //zuerst koord.system in dems grad is, dann die wir haben wollen
+      map.getView().fitExtent(ol.proj.transformExtent(extent, 'EPSG:4326', 'EPSG:3857'), map.getSize()); //zuerst koord.system in dems grad is, dann die wir haben wollen
    };
   xhr.send();
 }
