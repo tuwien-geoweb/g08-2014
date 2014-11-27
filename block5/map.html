@@ -23,12 +23,19 @@ width: 100%;
 <div class="col-md-8" style=";">
 <div id="map" class="map">
 <script type="text/javascript">
+var marker = new ol.Feature()
+})
 var map = new ol.Map({
 target: 'map',
 layers: [
 new ol.layer.Tile({
 source: new ol.source.MapQuest({layer: 'osm'})
 }),
+new ol.layer.Vector({
+  source: new ol.source.Vector({
+    features: [marker]
+  })
+})
 new ol.layer.Vector({
 source: new ol.source.GeoJSON({
 projection: 'EPSG:3857',
@@ -48,7 +55,8 @@ var geolocation = new ol.Geolocation({
 geolocation.setTracking(true); // here the browser may ask for confirmation
 geolocation.on('change:position', function() {
   geolocation.setTracking(false);
-  map.getView().setCenter(geolocation.getPosition());  // nur einmal position geben, sobald ich sie hab, wieder ausschalten
+  map.getView().setCenter(geolocation.getPosition());
+  marker.setGeometry(new ol.geom.Point(mag.getCenter()));  // nur einmal position geben, sobald ich sie hab, wieder ausschalten
 });
 </script>
 </div>
