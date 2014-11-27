@@ -69,8 +69,13 @@ form.onsubmit = function (evt) {
 
   xhr.onload = function() {
       var result = JSON.parse(xhr.responseText);
-      var position = /** @type {ol.Coordinate} */ [parseFloat(result[0].lon), parseFloat(result[0].lat)]; //text in zahlen umwandeln
-      map.getView().setCenter(ol.proj.transform(position, 'EPSG:4326', 'EPSG:3857')); //zuerst koord.system in dems grad is, dann die wir haben wollen
+      var bbox = result.boundingbox;
+      var extent = /** @type {ol.Extent}
+      var position = /** @type {ol.Coordinate} */ [
+        parseFloat(bbox[2]), parseFloat(bbox[0]), 
+        parseFloat(bbox[3]), parseFloat(bbox[1])
+        ]; //text in zahlen umwandeln
+      map.getView().fitExtent(ol.proj.transformExtent(extent, 'EPSG:4326', 'EPSG:3857')); //zuerst koord.system in dems grad is, dann die wir haben wollen
    };
   xhr.send();
 }
