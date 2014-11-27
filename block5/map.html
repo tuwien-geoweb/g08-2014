@@ -69,7 +69,7 @@ form.onsubmit = function (evt) {
 
   xhr.onload = function() {
       var result = JSON.parse(xhr.responseText);
-      var bbox = result.boundingbox;
+      var bbox = result[0].boundingbox;
       var extent = /** @type {ol.Extent}
       var position = /** @type {ol.Coordinate} */ [
         parseFloat(bbox[2]), parseFloat(bbox[0]), 
