@@ -66,6 +66,7 @@ var form = document.getElementById("search");
 
 
 form.onsubmit = function () {
+  evt.preventDefault(); //wenn das nicht drinsteht, wird seite neu geladen
   var url = 'http://nominatim.openstreetmap.org/search?&format=json&q=' + form.query.value';
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
