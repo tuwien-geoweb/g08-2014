@@ -48,6 +48,7 @@
   maxZoom: 19
   })
   });
+  
   var geolocation = new ol.Geolocation({
   projection: 'EPSG:3857'
   });
@@ -57,11 +58,14 @@
   map.getView().setCenter(geolocation.getPosition());
   marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
   });
+  
   var form = document.getElementById("search");
+  
   form.onsubmit = function(evt) {
   evt.preventDefault();
   var url = 'http://nominatim.openstreetmap.org/search?format=json&q=' + form.query.value;
   var xhr = new XMLHttpRequest();
+  
   xhr.open("GET", url, true);
   xhr.onload = function() {
   var result = JSON.parse(xhr.responseText);
@@ -75,6 +79,8 @@
   };
   xhr.send();
   }
+  
+  
   function current_location() {
   var geolocation = new ol.Geolocation({
   projection: 'EPSG:3857'
@@ -86,6 +92,9 @@
   marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
   });
   }
+  
+  var form = document.getElementById("search");
+  
   </script>
   </body>
 </html>
