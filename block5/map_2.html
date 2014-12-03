@@ -41,17 +41,7 @@ source: new ol.source.Vector({
 features: [marker]
 })
 })
-style = new ol.style.Style({
-image: new ol.style.circle(({
-  radius: 3,
-    fill: new ol.style.Fill({
-    color: 'red'})
-stroke: new ol.style.Stroke({
-    color: 'green'
-    width: 1
-    })
-}))
-});
+
 ],
 view: new ol.View({
 center: ol.proj.transform([16.3, 48.2], 'EPSG:4326', 'EPSG:3857'),
