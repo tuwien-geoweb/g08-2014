@@ -19,7 +19,6 @@ olMap = new ol.Map({
     center: [-10764594.0, 4523072.0],
     zoom: 5
     maxZoom: 18
-})
   })
 });
 
