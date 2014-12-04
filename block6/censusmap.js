@@ -5,7 +5,7 @@ var osmLayer = new ol.layer.Tile({source: new ol.source.OSM()});
 var wmsLayer = new ol.layer.Image({
   source: new ol.source.ImageWMS({
     url: 'http://student.ifip.tuwien.ac.at/geoserver/wms',
-    params: {'LAYERS': 'g08_2014:normalized'}
+    params: {'LAYERS': 'g08_2014:normalized,g08_2014:comments'}
   }),
   opacity: 0.6
 });
@@ -66,7 +66,7 @@ olMap.on('singleclick', function(evt) {
   feature.setGeometry(new ol.geom.Point(evt.coordinate));
   feature.set('comment', this.comment.value);
   var xml = new ol.format.WFS().writeTransaction([feature], null, null, {
-    featureType: 'comments', featureNS: 'http://geoweb/2014/gXX',
+    featureType: 'comments', featureNS: 'http://geoweb/2014/g08',
     gmlOptions: {srsName: 'EPSG:3857'}
   });
   var xhr = new XMLHttpRequest();
