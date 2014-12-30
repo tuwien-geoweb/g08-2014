@@ -1,6 +1,6 @@
 Data
 Wien
-A11	Bezirksgrenzen ID     
+A11	      Bezirksgrenzen ID     
 A12	Bezirks ID
 A13	Gesamtbevölkerung 2014
 A14	Gesamtbevölkerung 2004
