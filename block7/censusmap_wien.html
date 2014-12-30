@@ -74,7 +74,7 @@
     </nav>
     <div id="map">
       <!-- GetLegendGraphic, customized with some LEGEND_OPTIONS -->
-      <img class="legend img-rounded" src="http://student.ifip.tuwien.ac.at/geoserver/g08_2014/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=26&HEIGHT=18&STRICT=false&style=g08_2014_stddev&LEGEND_OPTIONS=fontName:sans-serif;fontSize:11;fontAntiAliasing:true;fontStyle:bold;fontColor:0xFFFFFF;bgColor:0x000000">
+     <!-- <img class="legend img-rounded" src="http://student.ifip.tuwien.ac.at/geoserver/g08_2014/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=26&HEIGHT=18&STRICT=false&style=g08_2014_stddev&LEGEND_OPTIONS=fontName:sans-serif;fontSize:11;fontAntiAliasing:true;fontStyle:bold;fontColor:0xFFFFFF;bgColor:0x000000">-->
      <div id="popup" data-html="true" data-placement="auto" data-title="&times;">
         <div id="popup-content" style="display:none">
           <iframe seamless></iframe>
@@ -127,7 +127,7 @@
   geolocation.on('change:position', function() {
   geolocation.setTracking(false);
   map.getView().setCenter(geolocation.getPosition());
-  //marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
+  marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
   });
   
   var form = document.getElementById("search");
@@ -160,7 +160,7 @@
   geolocation.on('change:position', function() {
   geolocation.setTracking(false);
   map.getView().setCenter(geolocation.getPosition());
-  //marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
+  marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
   });
   }
   
