@@ -146,6 +146,13 @@ new ol.layer.Vector({
   ];
   map.getView().fitExtent(ol.proj.transformExtent(extent, 'EPSG:4326', 'EPSG:3857'), map.getSize());
   marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
+  
+  
+  map.getView().setCenter(geolocation.getPosition());
+  marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
+  
+  
+  
   };
   xhr.send();
   }
