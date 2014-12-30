@@ -1,0 +1,17 @@
+Data
+Wien
+A11	Bezirksgrenzen ID     
+A12	Bezirks ID
+A13	Gesamtbevölkerung 2014
+A14	Gesamtbevölkerung 2004
+A15	Österreicher in Wien 2014
+A16	Personen mit Migrationshintergrund in Wien 2014
+A17	Männer 2014
+A28	Frauen 2014
+A19	Bevölkerungsdichte 2014
+A20	Bevölkerungsdichte 2004
+A21	Personen mit Pflichtschulabschluss 2012
+A22	Personen mit Hochschulabschluss 2012
+A23	Grünflächenanteil
+A24	Bevölkerungsprognose 2020
+A25	Bevölkerungsprognose 2034
