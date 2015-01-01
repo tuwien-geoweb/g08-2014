@@ -21,7 +21,7 @@ olMap = new ol.Map({
      maxZoom: 19
   })
 });
-/*
+
 // Load variables into dropdown
 $.get("data/DataDict.txt", function(response) {
   // We start at line 3 - line 1 is column names, line 2 is not a variable
@@ -31,7 +31,7 @@ $.get("data/DataDict.txt", function(response) {
       .html(line.substr(10, 105).trim()));
   });
 });
-*/
+
 
 // Add behaviour to dropdown
 $('#topics').change(function() {
