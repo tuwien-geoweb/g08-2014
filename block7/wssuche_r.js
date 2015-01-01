@@ -125,14 +125,7 @@ new ol.layer.Vector({
             src: 'https://cloud.githubusercontent.com/assets/9716583/5280362/7085b7c4-7af0-11e4-99fb-2ee019923e19.png'
           })
         })
-      })
-  ],
-  view: new ol.View({
-  center: ol.proj.transform([16.3, 48.2], 'EPSG:4326', 'EPSG:3857'),
-  zoom: 11,
-  maxZoom: 19
-  })
-  });
+});
 
 function current_location() {
   var geolocation = new ol.Geolocation({
