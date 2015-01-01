@@ -117,7 +117,6 @@ function current_location() {
   geolocation.setTracking(true); // here the browser may ask for confirmation // das passt noch nicht so ganz
   geolocation.on('change:position', function() {
   geolocation.setTracking(false);
-  map.getView().setCenter(geolocation.getPosition());
-  marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
+  olMap.getView().setCenter(geolocation.getPosition());
   });
   }
