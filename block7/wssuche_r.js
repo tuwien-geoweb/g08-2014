@@ -109,3 +109,15 @@ view: new ol.View({
 function vienna(){
   olMap.getView().setCenter(ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'))
 };
+
+function current_location() {
+  var geolocation = new ol.Geolocation({
+  projection: 'EPSG:3857'
+  });
+  geolocation.setTracking(true); // here the browser may ask for confirmation // das passt noch nicht so ganz
+  geolocation.on('change:position', function() {
+  geolocation.setTracking(false);
+  map.getView().setCenter(geolocation.getPosition());
+  marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
+  });
+  }
