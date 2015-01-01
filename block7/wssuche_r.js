@@ -110,6 +110,30 @@ function vienna(){
   olMap.getView().setCenter(ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'))
 };
 
+
+var marker = new ol.Feature();
+new ol.layer.Vector({
+        source: new ol.source.Vector({
+          features: [marker]
+        }),
+        style: new ol.style.Style({
+          image: new ol.style.Icon({
+            anchor: [0.5, 46],
+            anchorXUnits: 'fraction',
+            anchorYUnits: 'pixels',
+            opacity: 0.75,
+            src: 'https://cloud.githubusercontent.com/assets/9716583/5280362/7085b7c4-7af0-11e4-99fb-2ee019923e19.png'
+          })
+        })
+      })
+  ],
+  view: new ol.View({
+  center: ol.proj.transform([16.3, 48.2], 'EPSG:4326', 'EPSG:3857'),
+  zoom: 11,
+  maxZoom: 19
+  })
+  });
+
 function current_location() {
   var geolocation = new ol.Geolocation({
     projection: 'EPSG:3857'
@@ -118,6 +142,7 @@ function current_location() {
   geolocation.on('change:position', function() {
     geolocation.setTracking(false);
     olMap.getView().setCenter(geolocation.getPosition());
-    olMap.getView().setZoom(15);
+    //olMap.getView().setZoom(15);
+    marker.setGeometry(new ol.geom.Point(olMap.getView().getCenter()));
   });
 }
