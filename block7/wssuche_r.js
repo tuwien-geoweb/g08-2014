@@ -84,6 +84,15 @@ var form = document.forms[0];
 form.onsubmit = function(evt) {
   var url = 'http://nominatim.openstreetmap.org/search?format=json&q=';
   url += form.query.value;
+  
+  if (form.nurwien.checked == true) {
+    var autwert = '&viewbox=16.182461,48.323101,16.577654,48.119122&bounded=1';
+  }
+  else {
+    var autwert = '';
+  }
+  url+=autwert;
+  
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
   xhr.onload = function() {
