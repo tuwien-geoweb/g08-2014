@@ -108,7 +108,7 @@ view: new ol.View({
 
 function vienna(){
   olMap.getView().setCenter(ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'));
-  olMap.getView().setZoom(5);
+  olMap.getView().setZoom(12);
 };
 
 function current_location() {
