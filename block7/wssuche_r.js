@@ -103,7 +103,7 @@ form.onsubmit = function(evt) {
           parseFloat(bbox[0]), parseFloat(bbox[3]), parseFloat(bbox[1])],
           'EPSG:4326', 'EPSG:3857'), olMap.getSize());
     }else{
-      console.log("kein Ergebnis");
+      alert("kein Ergebnis gefunden");
     }
   };
   xhr.send();
