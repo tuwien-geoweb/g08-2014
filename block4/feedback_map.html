@@ -49,26 +49,34 @@
 		      <form action="javascript:submitForm();">
 		      <input type="radio" name="geschlecht" value="Frau"/> Frau
 		      <input type="radio" name="geschlecht" value="Herr"/> Herr
-		      <table>
-		      <tr><td>Titel: </td>
-		      <td><select name="titel">
-		      <option value="BA">BA</option>
-		      <option value="Dipl.-Ing.">Dipl.-Ing.</option>
-		      <option value="Dr.">Dr.</option>
-		      <option value="Mag.">Mag.</option>
-		      <option value="MA">MA</option>
-		      <option value=""></option>
-		      <option value="">Sonstige</option>
-		      </select></td>
-		      <tr><td>Vorname:</td>
-		      <td><input type="text" name="vorname" size="30" /></td>
-		      </tr>
-		      <tr><td>Nachname:</td>
-		      <td><input type="text" name="nachname" size="30" /></td>
-		      </tr>
-		      <tr><td>E-Mail: </td>
-		      <td><input type="text" name="email" size="60" /></td>
-		      </tr>
+		      	<table>
+				<tr>
+				     	<td>Titel: </td>
+				      	<td>
+				      		<select name="titel">
+					      		<option value="BA">BA</option>
+					      		<option value="Dipl.-Ing.">Dipl.-Ing.</option>
+						      	<option value="Dr.">Dr.</option>
+						      	<option value="Mag.">Mag.</option>
+						      	<option value="MA">MA</option>
+						      	<option value=""></option>
+						      	<option value="">Sonstige</option>
+				      		</select>
+				      	</td>
+				      	
+				</tr>
+				<tr>
+					<td>Vorname:</td>
+					<td><input type="text" name="vorname" size="30" /></td>
+				</tr>
+				<tr>
+					<td>Nachname:</td>
+					<td><input type="text" name="nachname" size="30" /></td>
+				</tr>
+				<tr>
+					<td>E-Mail: </td>
+					<td><input type="text" name="email" size="30" /></td>
+				</tr>
 		      </table>
 		      <br />
 		      Feedback: <br />
@@ -85,8 +93,8 @@
 		      <script src="http://openlayers.org/en/v3.0.0/build/ol.js"></script>
 		      <script src="feedback.js"></script>
 		      <script>
-		      featureType = "feedback_an_g08";
-		      featureNS = "http://geoweb/2014/g08";
+		      		featureType = "feedback_an_g08";
+		      		featureNS = "http://geoweb/2014/g08";
 		      </script>
 
     	</div>
