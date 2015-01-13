@@ -20,26 +20,26 @@
 
 <div class="row" style="background-color:#FFFFFF;border:2px solid #FFFFFF;border-radius: 5px 30px 5px 5px;padding: 5px;">
 
-		 <div id="mapx" class="col-md-2">
+		 <div id="map" class="col-md-2">
 		      <script type="text/javascript">
-		      var map = new ol.Map({
-		      target: 'map',
-		      layers: [
-		      new ol.layer.Tile({
-		      source: new ol.source.MapQuest({layer: 'sat'})
-		      }),
-		      new ol.layer.Vector({
-		      source: new ol.source.GeoJSON({
-		      projection: 'EPSG:3857',
-		      url: 'http://student.ifip.tuwien.ac.at/geoserver/g08_2014/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=g08_2014:feedback_an_g08&maxFeatures=50&outputFormat=json'
-		      })
-		      })
-		      ],
-		      view: new ol.View({
-		      center: ol.proj.transform([16.319, 48.166], 'EPSG:4326', 'EPSG:3857'),
-		      zoom: 11
-		      })
-		      });
+			      var map = new ol.Map({
+				      target: 'map',
+				      layers: [
+				      new ol.layer.Tile({
+				      	source: new ol.source.MapQuest({layer: 'sat'})
+			      	      }),
+				      new ol.layer.Vector({
+					      source: new ol.source.GeoJSON({
+						      projection: 'EPSG:3857',
+						      url: 'http://student.ifip.tuwien.ac.at/geoserver/g08_2014/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=g08_2014:feedback_an_g08&maxFeatures=50&outputFormat=json'
+					      })
+				      })
+				      ],
+				      view: new ol.View({
+					      center: ol.proj.transform([16.319, 48.166], 'EPSG:4326', 'EPSG:3857'),
+					      zoom: 11
+				      })
+			      });
 		      </script>
 		</div>  
 	
